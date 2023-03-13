@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
 user1 = User.new(email: "olga@gmail.com", password: "123456qwerty")
 user1.save
 user2 = User.new(email: "guido@gmail.com", password: "123456")
@@ -39,4 +40,3 @@ booking2 = Booking.new(confirmed: false, user_id: 4, player_id: 4, date: "2024")
 booking2.save
 booking3 = Booking.new(confirmed: false, user_id: 4, player_id: 6, date: "2023")
 booking3.save
-
