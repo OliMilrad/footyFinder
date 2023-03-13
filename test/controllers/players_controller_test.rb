@@ -1,38 +1,38 @@
 require "test_helper"
 
-class ModelsControllerTest < ActionDispatch::IntegrationTest
-  test "should get show" do
-    get models_show_url
+class PlayersControllerTest < ActionDispatch::IntegrationTest
+  test "should get index" do
+    get players_index_url
     assert_response :success
   end
 
-  test "should get index" do
-    get models_index_url
+  test "should get show" do
+    get players_show_url
     assert_response :success
   end
 
   test "should get new" do
-    get models_new_url
+    get players_new_url
     assert_response :success
   end
 
   test "should get create" do
-    get models_create_url
+    get players_create_url
     assert_response :success
   end
 
   test "should get edit" do
-    get models_edit_url
+    get players_edit_url
     assert_response :success
   end
 
   test "should get update" do
-    get models_update_url
+    get players_update_url
     assert_response :success
   end
 
   test "should get destroy" do
-    get models_destroy_url
+    get players_destroy_url
     assert_response :success
   end
 end
