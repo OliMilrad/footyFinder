@@ -10,7 +10,6 @@ class CreatePlayers < ActiveRecord::Migration[7.0]
       t.string :last_club
       t.float :price
       t.references :user, null: false, foreign_key: true
-
       t.timestamps
     end
   end
