@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to "/", class: "navbar-brand" do %>
       <%= image_tag "https://as2.ftcdn.net/v2/jpg/04/72/59/87/1000_F_472598798_wTQoBnLKCuypA9R2HKBoZYCEFqn4ZOEW.jpg" %>
     <% end %>
 
@@ -15,7 +15,7 @@
             <%= link_to "Players", "/players", class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Book Player", "/players/:player_id/bookings/new", class: "nav-link" %>
+            <%= link_to "Add Player", new_player_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Bookings", "/players/:player_id/bookings", class: "nav-link" %>
