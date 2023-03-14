@@ -11,12 +11,13 @@ class PlayersController < ApplicationController
   end
 
   def new
-    authorize @player
     @player = Player.new
+    authorize @player
   end
 
   def create
     @player = Player.new(player_params)
+    authorize @player
     @user = User.find(params[:user_id])
     @player.user = @user
     if @player.save
