@@ -1,2 +1,69 @@
 <h1>Players#show</h1>
 <p>Find me in app/views/players/show.html.erb</p>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <h1><%= @player.full_name %></h1>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th scope="row">Position</th>
+            <td><%= @player.position %></td>
+          </tr>
+          <tr>
+            <th scope="row">Nationality</th>
+            <td><%= @player.nationality %></td>
+          </tr>
+          <tr>
+            <th scope="row">Location</th>
+            <td><%= @player.location %></td>
+          </tr>
+          <tr>
+            <th scope="row">Height</th>
+            <td><%= @player.height %></td>
+          </tr>
+          <tr>
+            <th scope="row">Age</th>
+            <td><%= @player.age %></td>
+          </tr>
+          <tr>
+            <th scope="row">Last Club</th>
+            <td><%= @player.last_club %></td>
+          </tr>
+          <tr>
+            <th scope="row">Market Price</th>
+            <td><%= @player.price %></td>
+          </tr>
+        </tbody>
+      </table>
+<%#
+      <div class="list-group">
+        <% @restaurant.reviews.each do |review| %>
+          <%# <li class="list-group-item">
+            <small>
+              <% count = 0 %>
+              <%# <% 5.times do %>
+                <%# <% if review.rating > count %>
+                  <%# <i class="fa-solid fa-star"></i>
+                <% else %>
+                  <%# <i class="fa-regular fa-star"></i> %>
+                <%# <% end %>
+                <%# <% count += 1 %>
+              <%# <% end %>
+            <%# </small>
+            <p><%= review.content</p>
+          <%# </li>
+        <% end %>
+      <%# </div> %>
+
+      <%# <%= simple_form_for [@restaurant, @review] do |f| %>
+        <%# <%= f.input :rating, collection: 0..5 %>
+        <%# <%= f.input :content%>
+        <%# <%= f.submit class: 'btn btn-primary' %>
+      <%# <% end %>
+      <%# <%= link_to "See all restaurants", restaurants_path %>
+    </div>
+  </div>
+</div>

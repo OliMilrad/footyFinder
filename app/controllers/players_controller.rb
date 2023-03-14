@@ -12,8 +12,13 @@ class PlayersController < ApplicationController
 
   def create
     @player = Player.new(player_params)
-    @player.save
-    redirect_to players_path(@player)
+    @user = User.find(params[:user_id])
+    @player.user = @user
+    if @player.save
+      redirect_to player_path(@player)
+    else
+      render "players/show", status: :unprocessable_entity
+    end
   end
 
   def edit; end

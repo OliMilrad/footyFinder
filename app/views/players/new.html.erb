@@ -1,2 +1,21 @@
 <h1>Players#new</h1>
 <p>Find me in app/views/players/new.html.erb</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <h1>Create a new Player</h1>
+      <%= simple_form_for @player do |f| %>
+        <%= f.input :full_name %>
+        <%= f.input :position %>
+        <%= f.input :nationality %>
+        <%= f.input :location %>
+        <%= f.input :height %>
+        <%= f.input :age %>
+        <%= f.input :last_club %>
+        <%= f.input :price %>
+        <%= f.submit class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
