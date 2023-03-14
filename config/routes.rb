@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-  get 'players/index'
-  get 'players/show'
-  get 'players/new'
-  get 'players/create'
-  get 'players/edit'
-  get 'players/update'
-  get 'players/destroy'
   root to: "pages#home"
   resources :bookings do
     resources :players
