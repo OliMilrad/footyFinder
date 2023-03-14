@@ -1,7 +1,7 @@
 <!-- app/views/settings/index.html.erb -->
 <h1>Settings</h1>
 
-<%= simple_form_for(current_user, url: user_path, method: :patch, html: { multipart: true }) do |form| %>
+<%= simple_form_for current_user do |form| %>
   <!-- Avatar -->
   <div class="form-group">
     <%= form.input :photo, as: :file, accept: 'image/png, image/jpeg', label: "Avatar" %>
