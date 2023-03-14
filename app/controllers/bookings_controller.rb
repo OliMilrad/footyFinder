@@ -5,6 +5,7 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = Booking.all
+    @user = current_user
   end
 
   def new
@@ -16,6 +17,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.player = @player
     @booking.user = current_user
+    booking.confirmed = false
     if @booking.save
       redirect_to player_path(@player)
     else
@@ -24,12 +26,14 @@ class BookingsController < ApplicationController
   end
 
   def edit
+    # if record.user == user
     @booking = Booking.find(params[:id])
+    # end
   end
 
   def update
     @booking = Booking.find(params[:id])
-    @booking.update(booking_params)
+    @booking.update(confirmed: true)
     redirect_to bookings_path(@booking)
   end
 

@@ -18,8 +18,7 @@ class PlayersController < ApplicationController
   def create
     @player = Player.new(player_params)
     authorize @player
-    @user = User.find(params[:user_id])
-    @player.user = @user
+    @player.user = current_user
     if @player.save
       redirect_to player_path(@player)
     else
