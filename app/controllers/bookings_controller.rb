@@ -13,6 +13,8 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.player = Player.find(params[:player_id])
+    @booking.user = User.find(params[:user_id])
     @booking.save
     redirect_to bookings_path(@booking)
   end
@@ -36,6 +38,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:date, :confirmed)
+    params.require(:booking).permit(:date)
   end
 end
