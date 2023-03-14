@@ -12,11 +12,15 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @player = Player.find(params[:player_id])
     @booking = Booking.new(booking_params)
-    @booking.player = Player.find(params[:player_id])
-    @booking.user = User.find(params[:user_id])
-    @booking.save
-    redirect_to bookings_path(@booking)
+    @booking.player = @player
+    @booking.user = current_user
+    if @booking.save
+      redirect_to player_path(@player)
+    else
+      render "players/show", status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -30,9 +34,9 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking = Booking.find(params[:id])
+    @booking = Booking.find(params[:booking_id])
     @booking.destroy
-    redirect_to bookings_path, status: :see_other
+    redirect_to player_path, status: :see_other
   end
 
   private

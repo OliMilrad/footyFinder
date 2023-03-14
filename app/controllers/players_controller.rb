@@ -27,14 +27,18 @@ class PlayersController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    authorize @player
+  end
 
   def update
+    authorize @player
     @player.update(player_params)
     redirect_to players_path(@player)
   end
 
   def destroy
+    authorize @player
     @player.destroy
     redirect_to players_path, status: :see_other
   end
@@ -42,7 +46,7 @@ class PlayersController < ApplicationController
   private
 
   def player_params
-    params.require(:player).permit(:date, :confirmed)
+    params.require(:player).permit(:full_name, :position, :nationality, :location, :height, :age, :last_club, :price, :photo)
   end
 
   def set_player
