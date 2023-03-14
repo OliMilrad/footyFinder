@@ -1,12 +1,17 @@
 class PlayersController < ApplicationController
   before_action :set_player, only: %i[show edit update destroy]
+  skip_before_action :authenticate_user!, only: %i[index show]
   def index
-    @players = Player.all
+
+    @players = policy_scope(Player)
   end
 
-  def show; end
+  def show
+    authorize @player
+  end
 
   def new
+    authorize @player
     @player = Player.new
   end
 
