@@ -46,3 +46,17 @@
 <% end %>
 
 <%= button_to "Delete this player", @player, method: :delete if policy(@player).destroy? %>
+
+<ul class="list-group">
+  <% @player.bookings.each do |booking| %>
+    <li class="list-group-item"><%= booking.date %></li>
+    <%= link_to "Remove", player_booking_path(@player),  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  <% end %>
+</ul>
+
+<%= simple_form_for [@player, Booking.new] do |f| %>
+<%= f.input :date %>
+<%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>
+
+  <%# <%= link_to "Book this player", new_player_booking_path(@player) %>

@@ -1,5 +1,6 @@
 class Player < ApplicationRecord
   belongs_to :user
+  has_many :bookings
   has_one_attached :photo
 
   # validates :full_name, presence: true
