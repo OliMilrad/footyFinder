@@ -1,2 +1,28 @@
 <h1>Bookings#index</h1>
 <p>Find me in app/views/bookings/index.html.erb</p>
+
+<p><strong>Bookings for the player</strong></p>
+<ul class="list-group">
+  <% @player.bookings.each do |booking| %>
+    <li class="list-group-item"><%= booking.user booking.date %></li>
+  <% end %>
+</ul>
+
+<br>
+
+<%= link_to "All Players", players_path %>
+</div>
+
+
+
+<p><strong>Bookings for the user</strong></p>
+<ul class="list-group">
+  <% @user.bookings.each do |booking| %>
+    <li class="list-group-item"><%= booking.player booking.date %></li>
+  <% end %>
+</ul>
+
+<br>
+
+<%= link_to "All Players", players_path %>
+</div>

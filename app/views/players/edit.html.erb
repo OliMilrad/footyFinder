@@ -1,2 +1,13 @@
-<h1>Players#edit</h1>
-<p>Find me in app/views/players/edit.html.erb</p>
+
+    <h1>Edit <%= @player.full_name %></h1>
+    <%= simple_form_for(@player) do |f| %>
+      <%= f.input :full_name %>
+      <%= f.input :position %>
+      <%= f.input :nationality %>
+      <%= f.input :location %>
+      <%= f.input :height %>
+      <%= f.input :age %>
+      <%= f.input :last_club %>
+      <%= f.input :price %>
+      <%= f.submit "Update Player" %>
+    <% end %>
