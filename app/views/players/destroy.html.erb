@@ -1,2 +1,16 @@
-<h1>Players#destroy</h1>
-<p>Find me in app/views/players/destroy.html.erb</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Destroy a player</title>
+  </head>
+  <body>
+    <h1>Destroy a player</h1>
+    <p>Are you sure you want to delete <%= @player.full_name %>?</p>
+    <form action="/players/<%= @player.id %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="submit" value="Yes, delete <%= @player.full_name %>">
+    </form>
+    <a href="/players">Cancel</a>
+  </body>
+</html>
