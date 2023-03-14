@@ -1,0 +1,24 @@
+<!-- app/views/settings/index.html.erb -->
+<h1>Settings</h1>
+
+<%= form_with(model: current_user, url: user_path, method: :patch, local: true, html: {multipart: true}) do |form| %>
+  <!-- Avatar -->
+  <div class="form-group">
+    <%= form.label :avatar %>
+    <%= form.file_field :avatar, accept: 'image/png, image/jpeg', class: 'form-control' %>
+  </div>
+
+  <!-- Full Name -->
+  <div class="form-group">
+    <%= form.label :full_name %>
+    <%= form.text_field :full_name, class: 'form-control' %>
+  </div>
+
+  <!-- Phone Number -->
+  <div class="form-group">
+    <%= form.label :phone_number %>
+    <%= form.text_field :phone_number, class: 'form-control' %>
+  </div>
+
+  <%= form.submit "Save Changes", class: "btn btn-primary" %>
+<% end %>
