@@ -1,6 +1,6 @@
 
 <h1>New booking</h1>
 <%= simple_form_for [@player, @booking] do |f| %>
-<%= f.input :date %>
+<%= f.input :date, :collection => 2024..2030 %>
 <%= f.submit "Submit", class: "btn btn-primary" %>
 <% end %>

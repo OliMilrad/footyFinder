@@ -13,7 +13,7 @@ User.destroy_all
 puts "creating 4 users"
 user1 = User.new(email: "olga@gmail.com", password: "123456qwerty")
 user1.save
-user2 = User.new(email: "guido@gmail.com", password: "123456")
+user2 = User.new(email: "guido1@gmail.com", password: "123456")
 user2.save
 user3 = User.new(email: "lalala@gmail.com", password: "654321")
 user3.save
@@ -55,10 +55,10 @@ player8.photo.attach(io: photo, filename: "martin.jpg", content_type: "image/jpg
 player8.save!
 puts "players created"
 puts "creating 3 bookings"
-booking1 = Booking.new(confirmed: true, user_id: user3.id, player_id: player1.id, date: "2023")
+booking1 = Booking.new(confirmed: true, user_id: user3.id, player_id: player1.id, date: 2023)
 booking1.save
-booking2 = Booking.new(confirmed: false, user_id: user3.id, player_id: player2.id, date: "2024")
+booking2 = Booking.new(confirmed: false, user_id: user3.id, player_id: player2.id, date: 2024)
 booking2.save
-booking3 = Booking.new(confirmed: false, user_id: user4.id, player_id: player3.id, date: "2023")
+booking3 = Booking.new(confirmed: false, user_id: user4.id, player_id: player3.id, date: 2023)
 booking3.save
 puts "bookings created"
