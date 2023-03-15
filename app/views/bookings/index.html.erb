@@ -1,14 +1,21 @@
 
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1> <strong>Manage bookings</strong></h1>
+  </div>
+</div>
 
-<p><strong>Your bookings</strong></p>
+<div class="container">
+<p><strong>Players you booked</strong></p>
 <ul class="list-group">
   <% @user.bookings.each do |booking| %>
     <li class="list-group-item"><%= booking.player.full_name %></li>
      <li class="list-group-item"><%= booking.date %></li>
+     <%= link_to "Remove", player_booking_path(booking.player, booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
   <% end %>
 </ul>
 
-<br>
+</div>
 
 <p><strong>Bookings you need to confirm</strong></p>
 <ul class="list-group">
@@ -18,8 +25,21 @@
     <li class="list-group-item"><%= player.full_name %></li>
      <% player.bookings.each do |booking|%>
         <%= booking.date %>
-        <%= button_to "#{booking.confirmed}", player_booking_path(player, booking), method: :patch %>
+        <%if booking.confirmed %>
+        <%= "This booking is confirmed" %>
+        <% else %>
+        <%= button_to "Confirm the booking", player_booking_path(player, booking), method: :patch %>
+        <% end %>
     <% end %>
    <% end %>
    <% end %>
 </ul>
+
+
+<div class="card-product">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <h2>Product name</h2>
+    <p>Product description with <strong>relevant info</strong> only.</p>
+  </div>
+</div>

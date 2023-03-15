@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "pages#home"
+  root to: "players#index"
   resources :players do
     resources :bookings, except: :index
   end

@@ -55,7 +55,7 @@
 </ul>
 
 <%= simple_form_for [@player, Booking.new] do |f| %>
-<%= f.input :date %>
+<%= f.input :date, :collection => 2024..2030 %>
 <%= f.submit "Submit", class: "btn btn-primary" %>
 <% end %>
 
