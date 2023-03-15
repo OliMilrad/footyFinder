@@ -17,6 +17,9 @@
           <li class="nav-item">
             <%= link_to "Add Player", new_player_path, class: "nav-link" %>
           </li>
+          <li class="nav-item">
+            <%= link_to "Bookings", "/bookings", class: "nav-link" %>
+          </li>
           <li class="nav-item dropdown">
           <% @user = current_user %>
             <%= cl_image_tag @user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
