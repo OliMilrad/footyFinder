@@ -78,5 +78,3 @@ group :test do
 end
 
 gem "cloudinary"
-
-gem "cssbundling-rails", "~> 1.1"
