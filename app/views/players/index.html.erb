@@ -1,29 +1,30 @@
-<div class="container-index">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-        <h1>All Players</h1>
-        <ul class="list-group mb-3">
-          <% @players.each do |player| %>
-            <li class="list-group-item">
-              <%= link_to player.full_name, player_path(player) %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
 
-<div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-  </div>
-  <div class="footer-copyright">
-    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
-  </div>
+<div class="container">
+
+
+      <h1>All Players</h1>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Position</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+     <% i = 1 %>
+ <% @players.each do |player| %>
+      <th scope="row"><%= i %></th>
+      <td><%= link_to player.full_name, player_path(player) %></td>
+      <td><%= player.position%></td>
+      <td>USD <%= player.price%> </td>
+      <% i+=1 %>
+    </tr>
+     <% end %>
+  </tbody>
+</table>
 </div>
