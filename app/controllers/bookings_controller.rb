@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.player = @player
     @booking.user = current_user
-    booking.confirmed = false
+    @booking.confirmed = false
     if @booking.save
       redirect_to player_path(@player)
     else
