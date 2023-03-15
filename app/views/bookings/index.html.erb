@@ -1,45 +1,57 @@
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i0.wp.com/thesefootballtimes.co/wp-content/uploads/2016/08/da3db010-bd05-41b3-876c-657ce9d0401b.jpg?w=1293&ssl=1);">
   <div class="container">
     <h1> <strong>Manage bookings</strong></h1>
   </div>
 </div>
 
 <div class="container">
-<p><strong>Players you booked</strong></p>
-<ul class="list-group">
+
+<h2><strong>Players you booked</strong></h2>
+<div class="content">
+
   <% @user.bookings.each do |booking| %>
-    <li class="list-group-item"><%= booking.player.full_name %></li>
-     <li class="list-group-item"><%= booking.date %></li>
-     <%= link_to "Remove", player_booking_path(booking.player, booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+
+    <div class="card-product">
+       <%= cl_image_tag booking.player.photo.key, height: 300, width: 400, crop: :fill %>
+        <div class="card-product-infos">
+        <h2> <%= booking.player.full_name%></h2>
+        <p><%= booking.date %></p>
+       <%= link_to "Remove", player_booking_path(booking.player, booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        </div>
+
+    </div>
   <% end %>
-</ul>
 
 </div>
 
-<p><strong>Bookings you need to confirm</strong></p>
-<ul class="list-group">
+
+  <h2><strong>Bookings you need to confirm</strong></h2>
+ <div class="content">
   <% @user.players.each do |player| %>
   <% if player.bookings.empty? %>
-     <% else %>
-    <li class="list-group-item"><%= player.full_name %></li>
-     <% player.bookings.each do |booking|%>
-        <%= booking.date %>
+  <% else %>
+
+
+    <% player.bookings.each do |booking|%>
+
+      <div class="card-product">
+       <%= cl_image_tag player.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face %>
+        <div class="card-product-infos">
+        <h2> <%= player.full_name%></h2>
+        <p><%= booking.date %></p>
         <%if booking.confirmed %>
-        <%= "This booking is confirmed" %>
+            <%= "This booking is confirmed" %>
         <% else %>
-        <%= button_to "Confirm the booking", player_booking_path(player, booking), method: :patch %>
+            <%= button_to "Confirm the booking", player_booking_path(player, booking), method: :patch %>
+
         <% end %>
+        </div>
+      </div>
+
     <% end %>
+
    <% end %>
    <% end %>
-</ul>
-
-
-<div class="card-product">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-  <div class="card-product-infos">
-    <h2>Product name</h2>
-    <p>Product description with <strong>relevant info</strong> only.</p>
-  </div>
+    </div>
 </div>
