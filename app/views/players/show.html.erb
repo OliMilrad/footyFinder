@@ -39,32 +39,24 @@
           </tr>
         </tbody>
       </table>
-<%#
-      <div class="list-group">
-        <% @restaurant.reviews.each do |review| %>
-          <%# <li class="list-group-item">
-            <small>
-              <% count = 0 %>
-              <%# <% 5.times do %>
-                <%# <% if review.rating > count %>
-                  <%# <i class="fa-solid fa-star"></i>
-                <% else %>
-                  <%# <i class="fa-regular fa-star"></i> %>
-                <%# <% end %>
-                <%# <% count += 1 %>
-              <%# <% end %>
-            <%# </small>
-            <p><%= review.content</p>
-          <%# </li>
-        <% end %>
-      <%# </div> %>
 
-      <%# <%= simple_form_for [@restaurant, @review] do |f| %>
-        <%# <%= f.input :rating, collection: 0..5 %>
-        <%# <%= f.input :content%>
-        <%# <%= f.submit class: 'btn btn-primary' %>
-      <%# <% end %>
-      <%# <%= link_to "See all restaurants", restaurants_path %>
-    </div>
-  </div>
-</div>
+
+<% if policy(@player).edit? %>
+  <%= link_to "Edit this player", edit_player_path(@player) %> |
+<% end %>
+
+<%= button_to "Delete this player", @player, method: :delete if policy(@player).destroy? %>
+
+<ul class="list-group">
+  <% @player.bookings.each do |booking| %>
+    <li class="list-group-item"><%= booking.date %></li>
+    <%= link_to "Remove", player_booking_path(@player),  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  <% end %>
+</ul>
+
+<%= simple_form_for [@player, Booking.new] do |f| %>
+<%= f.input :date %>
+<%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>
+
+  <%# <%= link_to "Book this player", new_player_booking_path(@player) %>

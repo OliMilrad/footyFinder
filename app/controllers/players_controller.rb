@@ -11,14 +11,14 @@ class PlayersController < ApplicationController
   end
 
   def new
-    authorize @player
     @player = Player.new
+    authorize @player
   end
 
   def create
     @player = Player.new(player_params)
-    @user = User.find(params[:user_id])
-    @player.user = @user
+    authorize @player
+    @player.user = current_user
     if @player.save
       redirect_to player_path(@player)
     else
@@ -26,14 +26,18 @@ class PlayersController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    authorize @player
+  end
 
   def update
+    authorize @player
     @player.update(player_params)
     redirect_to players_path(@player)
   end
 
   def destroy
+    authorize @player
     @player.destroy
     redirect_to players_path, status: :see_other
   end

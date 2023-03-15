@@ -1,7 +1,6 @@
-<h1>Bookings#new</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
+
 <h1>New booking</h1>
-<%= simple_form_for [@booking, @player, @user] do |f| %>
-  <%= f.input :date %>
-  <%= f.submit "Submit", class: "btn btn-primary" %>
+<%= simple_form_for [@player, @booking] do |f| %>
+<%= f.input :date %>
+<%= f.submit "Submit", class: "btn btn-primary" %>
 <% end %>
