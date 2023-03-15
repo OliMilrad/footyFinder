@@ -21,7 +21,7 @@
       <th scope="row"><%= i %></th>
       <td><%= link_to player.full_name, player_path(player) %></td>
       <td><%= player.position%></td>
-      <td>USD <%= player.price%> </td>
+      <td><%= player.price.to_fs(:currency, round_mode: :down)%> </td>
       <% i+=1 %>
     </tr>
      <% end %>

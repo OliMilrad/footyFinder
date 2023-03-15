@@ -5,15 +5,16 @@
   </div>
 </div>
 
-<div class="container">
+
+<div class="container p-3">
 
 <h2><strong>Players you booked</strong></h2>
-<div class="content">
-
+<div class="content p-3">
+<div class="card-products">
   <% @user.bookings.each do |booking| %>
 
     <div class="card-product">
-       <%= cl_image_tag booking.player.photo.key, height: 300, width: 400, crop: :fill %>
+        <%= cl_image_tag booking.player.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face %>
         <div class="card-product-infos">
         <h2> <%= booking.player.full_name%></h2>
         <p><%= booking.date %></p>
@@ -22,36 +23,41 @@
 
     </div>
   <% end %>
-
+</div>
 </div>
 
 
   <h2><strong>Bookings you need to confirm</strong></h2>
- <div class="content">
+
+ <div class="content p-3">
+ <div class="card-products">
   <% @user.players.each do |player| %>
-  <% if player.bookings.empty? %>
-  <% else %>
+    <% if player.bookings.empty? %>
+    <% else %>
 
+        <% player.bookings.each do |booking|%>
+          <div class="card-product">
+          <%= cl_image_tag player.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face %>
 
-    <% player.bookings.each do |booking|%>
+            <div class="card-product-infos">
+            <h2> <%= player.full_name%></h2>
+            <p><%= booking.date %></p>
 
-      <div class="card-product">
-       <%= cl_image_tag player.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face %>
-        <div class="card-product-infos">
-        <h2> <%= player.full_name%></h2>
-        <p><%= booking.date %></p>
-        <%if booking.confirmed %>
-            <%= "This booking is confirmed" %>
-        <% else %>
-            <%= button_to "Confirm the booking", player_booking_path(player, booking), method: :patch %>
+            <%if booking.confirmed %>
+                <p><%= "This booking is confirmed" %></p>
+            <% else %>
+              <p><%= button_to "Confirm the booking", player_booking_path(player, booking), method: :patch %></p>
 
+            <% end %>
+            </div>
+
+          </div>
         <% end %>
-        </div>
-      </div>
 
     <% end %>
 
-   <% end %>
-   <% end %>
-    </div>
+  <% end %>
+ </div>
+</div>
+
 </div>
