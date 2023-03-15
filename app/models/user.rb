@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :bookings, dependent: :destroy
   has_many :players, dependent: :destroy
+  has_one_attached :photo
+  # validates :avatar, attached: true, content_type: ['image/png', 'image/jpg', 'image/jpeg'], size: { less_than: 5.megabytes }
 end

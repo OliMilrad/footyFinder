@@ -78,3 +78,7 @@ group :test do
 end
 
 gem "cloudinary"
+
+gem 'active_storage_validations'
+
+gem 'image_processing'
