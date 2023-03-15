@@ -1,6 +1,7 @@
 .container-index {
-  background-image: url(https://img.freepik.com/free-vector/gradient-style-football-field-background_23-2148995842.jpg), width 100%;
-
+  // background-image: linear-gradient() url();
+  background-size: cover;
+  height: 1000px;
+  border: 2px solid;
   color: rgb(255, 255, 255);
-  font-weight: 400;
 }
