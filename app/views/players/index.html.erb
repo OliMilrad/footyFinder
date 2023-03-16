@@ -9,13 +9,16 @@
 
       <div class="content p-3">
         <div class="cards">
+
           <% @players.each do |player| %>
             <div class="card" style="width: 18rem;">
+            <%= link_to player_path(player), class:"text-decoration-none" do%>
               <%= cl_image_tag player.photo.key, width: 150, height: 150 %>
                 <div class="card-body">
                   <h2 class="card-title"><%= player.full_name%></h2>
                   <p class="card-text"><%= player.price.to_fs(:currency, round_mode: :down)%></p>
                 </div>
+              <% end %>
             </div>
           <% end %>
         </div>
