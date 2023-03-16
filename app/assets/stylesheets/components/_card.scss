@@ -7,6 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  transition: transform .3s;
 }
 
 .card-product img {
@@ -39,4 +40,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+}
+
+.card-product:hover {
+  transform: scale(1.1);
 }
