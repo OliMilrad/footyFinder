@@ -42,6 +42,24 @@ class PlayersController < ApplicationController
     redirect_to players_path, status: :see_other
   end
 
+  def myplayers
+    @players = policy_scope(Player)
+    @myplayers = current_user.players
+    authorize @myplayers
+  end
+
+
+  #   @players = policy_scope(Player)
+  #   @myplayers = []
+  #   authorize @myplayers
+  #   @players.each do |player|
+  #     if player.user == current_user
+  #       @myplayers << player
+  #     end
+  #   end
+  #   return @myplayers
+  # end
+
   private
 
   def player_params

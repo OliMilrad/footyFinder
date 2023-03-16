@@ -32,5 +32,8 @@ class PlayerPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
-  
+
+  def myplayers?
+    true
+  end
 end

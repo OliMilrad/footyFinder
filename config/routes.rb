@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :players do
 
     resources :bookings, except: :index
+  collection do
+    get :myplayers
+  end
   end
   resources :bookings, only: :index
 
