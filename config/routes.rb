@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: "pages#home"
   resources :players do
     resources :bookings, except: :index
+  collection do
+    get :myplayers
+  end
   end
   resources :bookings, only: :index
 
