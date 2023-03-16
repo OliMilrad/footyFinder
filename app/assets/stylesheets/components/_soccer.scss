@@ -1,32 +1,80 @@
-.soccer {
-  background: url(http://upload.wikimedia.org/wikipedia/en/e/ec/Soccer_ball.svg);
-  background-size: 100px 100px;
-  height: 100px;
-  width: 100px;
-  position: relative;
-  -webkit-animation:roll 4.5s infinite;
-  -moz-animation:roll 4.5s infinite;
-  animation:roll 4.5s infinite;
+// .soccer {
+//   background: url(http://upload.wikimedia.org/wikipedia/en/e/ec/Soccer_ball.svg);
+//   background-size: 100px 100px;
+//   height: 100px;
+//   width: 100px;
+//   position: relative;
+//   -webkit-animation:roll 4.5s infinite;
+//   -moz-animation:roll 4.5s infinite;
+//   animation:roll 4.5s infinite;
+// }
+
+// @-moz-keyframes roll {
+//   0% {left:0px; -webkit-transform: rotate(-360deg);}
+//   50% {left:1000px; -webkit-transform: rotate(360deg);}
+//   100% {left:0px; -webkit-transform: rotate(-360deg);}
+// }
+// @-webkit-keyframes roll {
+//   0% {left:0px; -webkit-transform: rotate(-360deg);}
+//   50% {left:1000px; -webkit-transform: rotate(360deg);}
+//   100% {left:0px; -webkit-transform: rotate(-360deg);}
+// }
+
+// @keyframes roll {
+//   0% {left:0px; -webkit-transform: rotate(-360deg);}
+//   50% {left:1000px; -webkit-transform: rotate(360deg);}
+//   100% {left:0px; -webkit-transform: rotate(-360deg);}
+// }
+
+// .world-cup {
+//   color: #82AE6F;
+//   text-align: center;
+// }
+
+
+.container-ball {
+	margin: 30px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 30px;
 }
 
-@-moz-keyframes roll {
-  0% {left:0px; -webkit-transform: rotate(-360deg);}
-  50% {left:1000px; -webkit-transform: rotate(360deg);}
-  100% {left:0px; -webkit-transform: rotate(-360deg);}
-}
-@-webkit-keyframes roll {
-  0% {left:0px; -webkit-transform: rotate(-360deg);}
-  50% {left:1000px; -webkit-transform: rotate(360deg);}
-  100% {left:0px; -webkit-transform: rotate(-360deg);}
-}
-
-@keyframes roll {
-  0% {left:0px; -webkit-transform: rotate(-360deg);}
-  50% {left:1000px; -webkit-transform: rotate(360deg);}
-  100% {left:0px; -webkit-transform: rotate(-360deg);}
+.soccer-ball {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	position: relative;
+	background: url('https://raw.githubusercontent.com/Yousuke777/texture/main/soccer-ball-02.png') repeat;
+	background-size: 200%;
+	box-shadow: -20px -10px 30px rgba(0, 0, 0, .75) inset;
+	animation: rotate-anim 2s linear infinite;
 }
 
-.world-cup {
-  color: #82AE6F;
-  text-align: center;
+.soccer-ball:after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -5px;
+	margin: auto;
+	width: 80px;
+	height: 5px;
+	border-radius: 50%;
+	background: #000;
+	filter: blur(5px);
+	z-index: -1;
+}
+
+@keyframes rotate-anim {
+	100% {
+		background-position: -100% 0;
+	}
+}
+
+
+.pageslink:active {
+  transition-delay: 3s;
+   .soccer-ball {
+    transform: scale(2.0);
+   }
 }
