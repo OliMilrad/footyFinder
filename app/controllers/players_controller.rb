@@ -39,7 +39,7 @@ class PlayersController < ApplicationController
   def destroy
     authorize @player
     @player.destroy
-    redirect_to player_bookings_path, status: :see_other
+    redirect_to player_bookings_path(@player), status: :see_other
   end
 
   def myplayers
