@@ -5,28 +5,36 @@
 
         <h1 class="p-3">All Players</h1>
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Name</th>
-        <th scope="col">Position</th>
-        <th scope="col">Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-      <% i = 1 %>
-  <% @players.each do |player| %>
-        <th scope="row"><%= i %></th>
-        <td><%= link_to player.full_name, player_path(player) %></td>
-        <td><%= player.position%></td>
-        <td><%= player.price.to_fs(:currency, round_mode: :down)%> </td>
-        <% i+=1 %>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-  </div>
+    <div class="container p-3">
 
+      <div class="content p-3">
+        <div class="cards">
+          <% @players.each do |player| %>
+            <div class="card" style="width: 18rem;">
+              <%= cl_image_tag player.photo.key, width: 150, height: 150 %>
+                <div class="card-body">
+                  <h2 class="card-title"><%= player.full_name%></h2>
+                  <p class="card-text"><%= player.price.to_fs(:currency, round_mode: :down)%></p>
+                </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+      <%# <tbody>
+        <tr>
+        <% i = 1 %>
+      <%# <% @players.each do |player| %>
+          <%# <th scope="row"><%= i %>
+          <%# <td><%= link_to player.full_name, player_path(player) %>
+          <%# <td><%= player.position%>
+          <%# <td><%= player.price.to_fs(:currency, round_mode: :down)%>
+          <%# <% i+=1 %>
+        <%# </tr>
+        <% end %>
+      <%# </tbody>
+    </table> %>
+  </div>
 </div>
