@@ -13,10 +13,11 @@
 <div class="card-products">
   <% @user.bookings.each do |booking| %>
 
+
     <div class="card-product">
         <%= cl_image_tag booking.player.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face %>
         <div class="card-product-infos">
-        <h2> <%= booking.player.full_name%></h2>
+        <h2> <%= link_to "#{booking.player.full_name}", player_path(booking.player)%></h2>
         <p><%= booking.date %></p>
        <%= link_to "Remove", player_booking_path(booking.player, booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
         </div>
@@ -46,8 +47,7 @@
             <%if booking.confirmed %>
                 <p><%= "This booking is confirmed" %></p>
             <% else %>
-              <p><%= button_to "Confirm the booking", player_booking_path(player, booking), method: :patch %></p>
-
+              <p><%= link_to "Confirm the booking", player_booking_path(player, booking), class: "btn btn-outline-secondary btn-sm",  method: :patch %></p>
             <% end %>
             </div>
 
