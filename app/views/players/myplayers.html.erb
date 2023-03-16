@@ -10,8 +10,10 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Name</th>
-        <th scope="col">Position</th>
-        <th scope="col">Price</th>
+        <th scope="col">Bookings</th>
+        <th scope="col">Bookings to confirm</th>
+        <th scope="col">Edit the plyer</th>
+        <th scope="col">Remove the plyer</th>
       </tr>
     </thead>
     <tbody>
@@ -20,8 +22,10 @@
   <% @myplayers.each do |player| %>
         <th scope="row"><%= i %></th>
         <td><%= link_to player.full_name, player_path(player) %></td>
-        <td><%= player.position%></td>
-        <td><%= player.price.to_fs(:currency, round_mode: :down)%> </td>
+        <td><%player.bookings.each do |booking|%><%= booking.date if booking.confirmed%> <% end %></td>
+       <td><%player.bookings.each do |booking|%><%= link_to "#{booking.date}", player_booking_path(player, booking),  data: {turbo_method: :patch, turbo_confirm: "Confirm this booking?"} if booking.confirmed == false%> <% end %></td>
+       <td><%= link_to "Edit", edit_player_path(player)%> </td>
+       <td><%= link_to "Delete", player_path(player), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %> </td>
         <% i+=1 %>
       </tr>
       <% end %>
@@ -30,3 +34,6 @@
   </div>
 
 </div>
+
+<%# <%= link_to "Edit", edit_player_path(@player), class:"btn btn-outline-secondary" if policy(@player).edit? %>
+      <%# <%= link_to "Delete", player_path(@player), class: "btn btn-outline-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} if policy(@player).destroy? %>
