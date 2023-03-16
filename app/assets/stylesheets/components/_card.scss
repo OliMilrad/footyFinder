@@ -10,6 +10,7 @@
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     color: black;
     display: grid;
+    transition: transform .3s;
   }
 
   .card img {
@@ -76,5 +77,9 @@
 }
 
 .card-product:hover {
+  transform: scale(1.1);
+}
+
+.card:hover {
   transform: scale(1.1);
 }
