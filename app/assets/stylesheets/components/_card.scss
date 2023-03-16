@@ -1,31 +1,36 @@
-.cards {
+.cards-index {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
+  grid-gap: 50px;
+  text-decoration: none;
 }
 
-.card {
+.card-index {
     overflow: hidden;
     background: white;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     color: black;
     display: grid;
     transition: transform .3s;
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-bottom: 25px;
+    padding-top: 1px;
   }
 
-  .card img {
+  .card-index img {
     height: 200px;
     width: 100%;
     object-fit: cover;
   }
 
-  .card h2 {
+  .card-index h2 {
     font-size: 16px;
     font-weight: bold;
     margin: 0;
   }
 
-  .card p {
+  .card-index p {
     font-size: 12px;
     opacity: .7;
     margin: 0;
@@ -80,6 +85,18 @@
   transform: scale(1.1);
 }
 
-.card:hover {
-  transform: scale(1.1);
+.card-index:hover {
+  transform: scale(1.2);
+}
+
+.card-index-body {
+  padding: 25px;
+}
+
+.card-index-title {
+  color: black;
+}
+
+.card-index-text {
+  color: black;
 }
