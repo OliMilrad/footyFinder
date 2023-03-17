@@ -82,9 +82,9 @@ booking2 = Booking.new(confirmed: false, user_id: user3.id, player_id: player2.i
 booking2.save
 booking3 = Booking.new(confirmed: false, user_id: user4.id, player_id: player3.id, date: 2023)
 booking3.save
-booking4 = Booking.new(confirmed: true, user_id: user1.id, player_id: player5.id, date: 2023)
+booking4 = Booking.new(confirmed: true, user_id: user1.id, player_id: player11.id, date: 2023)
 booking4.save
-booking5 = Booking.new(confirmed: false, user_id: user2.id, player_id: player11.id, date: 2024)
+booking5 = Booking.new(confirmed: false, user_id: user2.id, player_id: player12.id, date: 2024)
 booking5.save
 booking6 = Booking.new(confirmed: false, user_id: user2.id, player_id: player13.id, date: 2023)
 booking6.save
