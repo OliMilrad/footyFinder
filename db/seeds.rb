@@ -74,7 +74,7 @@ photo = URI.open("https://res.cloudinary.com/dmn9i4cwm/image/upload/v1679067160/
 player13.photo.attach(io: photo, filename: "neymar.png", content_type: "image/jpg")
 player13.save!
 
-puts "players created"
+puts "13 players created"
 puts "creating 3 bookings"
 booking1 = Booking.new(confirmed: true, user_id: user3.id, player_id: player1.id, date: 2023)
 booking1.save
