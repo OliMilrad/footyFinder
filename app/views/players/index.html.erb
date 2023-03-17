@@ -1,34 +1,21 @@
-<div class="container-index"
-  style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url(https://img.freepik.com/free-vector/gradient-style-football-field-background_23-2148995842.jpg)">
-  <div class="container">
+<div class="container p-3">
+  <%= render "searchform" %>
 
-
-        <h1 class="text-center m-3">All Players</h1>
-
-    <div class="container p-3">
-
-      <div class="content p-3">
-        <div class="cards-index">
-
-          <% @players.each do |player| %>
-            <div class="card-index rounded-4" style="width: 18rem; ">
-            <%= link_to player_path(player), class:"text-decoration-none" do%>
+  <div class="content p-3">
+    <div class="cards-index">
+      <% @players.each do |player| %>
+        <div class="card-index rounded-4" style="width: 18rem;">
+          <%= link_to player_path(player), class:"text-decoration-none" do%>
             <div class="img">
               <%= cl_image_tag player.photo.key, width: 151, height: 151 %>
-              </div>
-              <div class="card-player-info">
-               <p class="card-index-text"><%= player.price.to_fs(:currency, round_mode: :down)%></p>
-                  <h2 class="card-index-title h1"><%= player.full_name%></h2>
-              </div>
-              <% end %>
+            </div>
+            <div class="card-player-info">
+              <p class="card-index-text"><%= player.price.to_fs(:currency, round_mode: :down)%></p>
+              <h2 class="card-index-title h1"><%= player.full_name%></h2>
             </div>
           <% end %>
-
         </div>
-      </div>
+      <% end %>
     </div>
-
-
-
   </div>
 </div>

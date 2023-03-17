@@ -1,9 +1,13 @@
 class PlayersController < ApplicationController
   before_action :set_player, only: %i[show edit update destroy]
   skip_before_action :authenticate_user!, only: %i[index show]
-  def index
 
+  def index
     @players = policy_scope(Player)
+
+    if params[:search].present?
+      @players = @players.where("full_name ILIKE ?", "%#{params[:search]}%")
+    end
   end
 
   def show
@@ -47,18 +51,6 @@ class PlayersController < ApplicationController
     @myplayers = current_user.players
     authorize @myplayers
   end
-
-
-  #   @players = policy_scope(Player)
-  #   @myplayers = []
-  #   authorize @myplayers
-  #   @players.each do |player|
-  #     if player.user == current_user
-  #       @myplayers << player
-  #     end
-  #   end
-  #   return @myplayers
-  # end
 
   private
 
