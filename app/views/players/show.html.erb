@@ -1,7 +1,7 @@
 
 <div class="container-fluid text-left bg-light-grey m-0 p-0">
 
-<h1 class=" pb-5 name"><%= @player.full_name %></h1>
+<h1 class=" p-2 pb-5 name"><%= @player.full_name %></h1>
 </div>
 
 <div class="container-fluid text-center bg-white mb-auto">
@@ -48,48 +48,45 @@
 
     <div class="col">
 
-      <div class="container text-center">
+      <div class="container text-center info-show">
 
-        <div class="card">
-            <div class="card-body">
-              <p>Request the player now</p>
-                <%= simple_form_for [@player, Booking.new] do |f| %>
-                <%= f.input :date, :collection => 2024..2030, label:"Season"%>
-                <%= f.submit "Submit", class: "btn btn-primary" %>
-                <% end %>
-            </div>
-          </div>
+        <strong>Request the player now</strong>
+            <%= simple_form_for [@player, Booking.new] do |f| %>
+              <%= f.input :date, :collection => 2024..2030, label:"Season"%>
+              <%= f.submit "Submit", class: "btn btn-primary" %>
+            <% end %>
+
 
           <br>
 
-        Current bookings for this player
-          <ul class="list-group">
+        <strong>Current bookings for this player</strong>
+          <div class="table table-borderless">
             <% @player.bookings.each do |booking| %>
               <%if booking.confirmed%>
-                <li class="list-group-item"><%= booking.date %> Confirmed booking</li>
+               <th><%= booking.date %> Confirmed booking</th>
               <% else %>
-              <li class="list-group-item disabled" aria-disabled="true"><%= booking.date %> Pending Confirmation</li>
+              <th><%= booking.date %> Pending Confirmation</th>
               <% end %>
             <% end %>
-          </ul>
+          </div>
 
       </div>
     </div>
 
   <div class="container-fluid">
-  <br>
-   <br>
-    <br>
-    <br>
-   <br>
-    <br>
-    <br>
-   <br>
-    <br>
-    <br>
-   <br>
-    <br>
-     <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
 
   </div>
 
