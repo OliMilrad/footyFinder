@@ -1,68 +1,56 @@
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i0.wp.com/thesefootballtimes.co/wp-content/uploads/2016/08/da3db010-bd05-41b3-876c-657ce9d0401b.jpg?w=1293&ssl=1);">
-  <div class="container">
-    <h1> <strong>Manage bookings</strong></h1>
-  </div>
+<div class="container-fluid text-left bg-light-grey m-0 p-0">
+<h1 class=" p-2 pb-5 text-center name">Bookings</h1>
 </div>
 
 
-<div class="container p-3">
+<div class="container-fluid bg-white p-3">
 
-<h2 class="text-center m-3"><strong>Players you booked</strong></h2>
-<div class="content p-3">
-<div class="card-products">
-  <% @user.bookings.each do |booking| %>
+    <div class="content p-3">
+        <div class="card-products">
+          <% @user.bookings.each do |booking| %>
 
 
-    <div class="card-product">
-    <%= link_to player_path(booking.player), class:"text-decoration-none" do%>
-        <%= cl_image_tag booking.player.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face %>
-        <div class="card-product-infos">
-        <h2> <%= booking.player.full_name%></h2>
-        <p><%= booking.date %></p>
-       <%= link_to "Cancel the booking", player_booking_path(booking.player, booking), class:"text-decoration-none", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-        </div>
+            <div class="card-product">
+            <%= link_to player_path(booking.player), class:"text-decoration-none" do%>
+                <%= cl_image_tag booking.player.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face %>
+                <div class="card-product-infos">
+                <h2> <%= booking.player.full_name%></h2>
+                <p><%= booking.date %></p>
+               <%= link_to "Cancel the booking", player_booking_path(booking.player, booking), class:"text-decoration-none link-dark", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+                </div>
+              <% end %>
+            </div>
       <% end %>
     </div>
-  <% end %>
+
+    <div class="container-fluid">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+   </div>
 </div>
-</div>
-<br>
-
-  <%# <h2 class="text-center m-3"><strong>Bookings you need to confirm</strong></h2>
-
- <div class="content p-3">
- <div class="card-products">
-  <% @user.players.each do |player| %>
-    <%# <% if player.bookings.empty? %>
-    <%# <% else %>
-
-      <%# <% player.bookings.each do |booking|%>
-
-          <%# <div class="card-product">
-            <%= link_to player_path(booking.player), class:"text-decoration-none" do%>
-            <%# <%= cl_image_tag player.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face %>
-
-                <%# <div class="card-product-infos">
-                <%# <h2> <%= player.full_name</h2> %>
-                <%# <p><%= booking.date</p> %>
-<%#
-                <%if booking.confirmed %>
-                    <%# <p><%= "This booking is confirmed"</p> %>
-                <%# <% else %>
-                  <%# <p><%= link_to "Confirm the booking", player_booking_path(player, booking), class: "btn btn-outline-secondary btn-sm",  data: {turbo_method: :patch, turbo_confirm: "Are you sure?"} %></p>
-                <%# <% end %>
-                <%# </div> %>
-            <%# <% end %>
-          <%# </div> %>
-       <%# <% end %>
-
-
-
-      <%# <% end %>
-
-    <%# <% end %>
-
-
-<%# </div> %>
-<%# </div> %>

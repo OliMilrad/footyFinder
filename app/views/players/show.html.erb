@@ -43,7 +43,7 @@
      </div>
 
     <div class="col">
-       <%= cl_image_tag @player.photo.key, height: 300, width: 400, crop: :fill %>
+       <%= cl_image_tag @player.photo.key, height: 300, width: 400, :crop=>"fill" %>
     </div>
 
     <div class="col">
@@ -52,20 +52,24 @@
 
         <strong>Request the player now</strong>
             <%= simple_form_for [@player, Booking.new] do |f| %>
-              <%= f.input :date, :collection => 2024..2030, label:"Season"%>
-              <%= f.submit "Submit", class: "btn btn-primary" %>
+              <%= f.input :date, :collection => 2024..2030, placeholder: "Season", label:"Season"%>
+              <%= f.submit "Submit", class: "btn btn-outline-secondary" %>
             <% end %>
 
 
           <br>
 
         <strong>Current bookings for this player</strong>
-          <div class="table table-borderless">
+         <br>
+          <br>
             <% @player.bookings.each do |booking| %>
+            <div class="table table-borderless ">
               <%if booking.confirmed%>
                <th><%= booking.date %> Confirmed</th>
               <% else %>
-              <th><%= booking.date %> Pending Confirmation</th>
+              <div class="not-confirmed">
+              <th><%= booking.date %> - Pending Confirmation</th>
+              </div>
               <% end %>
             <% end %>
           </div>
