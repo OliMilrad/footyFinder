@@ -17,6 +17,9 @@ $success:    $green;
 $info:       $yellow;
 $danger:     $red;
 $warning:    $orange;
+$custom-colors: (
+  "light-grey": rgb(211, 210, 210)
+);
 
 // Buttons & inputs' radius
 $border-radius:    2px;
