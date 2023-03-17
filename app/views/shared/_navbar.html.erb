@@ -23,9 +23,7 @@
           <li class="nav-item dropdown">
             <%= image_tag current_user.photo.key ? current_user.photo.url : "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <% @user = current_user%>
-            <% @bookings = @user.bookings.pluck(:confirmed) %>
-            <% if @bookings.empty? == false %>
+            <% if current_user.bookings_as_owner.where(confirmed: false).present?  %>
             <%= link_to "My Players 🔴", "/players/myplayers", class: "dropdown-item" %>
             <% else %>
                  <%= link_to "My Players", "/players/myplayers", class: "dropdown-item" %>
@@ -43,6 +41,5 @@
     </div>
   </div>
 </div>
-
 
 <%# <i class="fa-solid fa-circle"></i> %>

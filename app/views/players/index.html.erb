@@ -16,9 +16,10 @@
             <div class="img">
               <%= cl_image_tag player.photo.key, width: 151, height: 151 %>
               </div>
+              <div class="card-player-info">
+               <p class="card-index-text"><%= player.price.to_fs(:currency, round_mode: :down)%></p>
                   <h2 class="card-index-title h1"><%= player.full_name%></h2>
-                    <p class="card-index-text"><%= player.price.to_fs(:currency, round_mode: :down)%></p>
-
+              </div>
               <% end %>
             </div>
           <% end %>
