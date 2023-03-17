@@ -2,39 +2,56 @@
   style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url(https://img.freepik.com/free-vector/gradient-style-football-field-background_23-2148995842.jpg)">
   <div class="container">
 
+    <h1 class="text-center m-3">My Players</h1>
 
-        <h1 class="text-center m-3">My Players</h1>
-
+   </div>
+ <div class="container">
   <table class="table">
-    <thead class="myplayers">
-      <tr>
-        <th class="col-1">#</th>
-        <th class="col-3">Name</th>
-        <th class="col-3">Bookings</th>
-        <th class="col-3">Bookings to confirm</th>
-        <th class="col-1 text-center"></th>
-      </tr>
-    </thead>
-    <tbody class="myplayers">
-      <tr>
-      <% i = 1 %>
-  <% @myplayers.each do |player| %>
-        <th scope="row"><%= i %></th>
-        <td><%= link_to player.full_name, player_path(player) %></th>
-        <td><%player.bookings.each do |booking|%><%= booking.date if booking.confirmed%> <% end %></th>
-        <td><%player.bookings.each do |booking|%><%= link_to "#{booking.date}", player_booking_path(player, booking),  data: {turbo_method: :patch, turbo_confirm: "Confirm this booking?"} if booking.confirmed == false%> <% end %></td>
-        <td class="text-center"><%= link_to edit_player_path(player), class:"text-decoration-none" do %>
-        <i class="fa-solid fa-pen-to-square"></i>
-        <% end %>
-        <%= link_to player_path(player), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  do%>
-        <i class="fa-solid fa-trash"></i>
-        <% end %>
-      </th>
-        <% i+=1 %>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-  </div>
 
+        <thead class="myplayers">
+            <tr>
+              <th class="col-1">#</th>
+              <th class="col-3">Name</th>
+              <th class="col-3">Bookings</th>
+              <th class="col-3">Bookings to confirm</th>
+              <th class="col-1 text-center"></th>
+            </tr>
+          </thead>
+          <tbody class="myplayers">
+            <tr>
+            <% i = 1 %>
+        <% @myplayers.each do |player| %>
+              <th scope="row"><%= i %></th>
+              <td><%= link_to player.full_name, player_path(player) %></th>
+              <td><%player.bookings.each do |booking|%><%= booking.date if booking.confirmed%> <% end %></th>
+              <td><%player.bookings.each do |booking|%><%= link_to "#{booking.date}", player_booking_path(player, booking),  data: {turbo_method: :patch, turbo_confirm: "Confirm this booking?"} if booking.confirmed == false%> <% end %></td>
+              <td class="text-center"><%= link_to edit_player_path(player), class:"text-decoration-none" do %>
+              <i class="fa-solid fa-pen-to-square"></i>
+              <% end %>
+              <%= link_to player_path(player), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  do%>
+              <i class="fa-solid fa-trash"></i>
+              <% end %>
+            </th>
+              <% i+=1 %>
+            </tr>
+            <% end %>
+         </tbody>
+   </table>
+    </div>
+     <div class="container-fluid">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+  </div>
 </div>
