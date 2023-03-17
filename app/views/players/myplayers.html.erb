@@ -1,27 +1,32 @@
 <div class="container-index"
-  style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(https://img.freepik.com/free-vector/gradient-style-football-field-background_23-2148995842.jpg)">
+  style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url(https://img.freepik.com/free-vector/gradient-style-football-field-background_23-2148995842.jpg)">
   <div class="container">
 
 
-        <h1 class="p-3">All Players</h1>
+        <h1 class="text-center m-3">My Players</h1>
 
   <table class="table">
-    <thead>
+    <thead class="myplayers">
       <tr>
         <th scope="col">#</th>
         <th scope="col">Name</th>
-        <th scope="col">Position</th>
-        <th scope="col">Price</th>
+        <th scope="col">Bookings</th>
+        <th scope="col">Bookings to confirm</th>
+        <th scope="col">Manage players</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="myplayers">
       <tr>
       <% i = 1 %>
   <% @myplayers.each do |player| %>
         <th scope="row"><%= i %></th>
         <td><%= link_to player.full_name, player_path(player) %></td>
-        <td><%= player.position%></td>
-        <td><%= player.price.to_fs(:currency, round_mode: :down)%> </td>
+        <td><%player.bookings.each do |booking|%><%= booking.date if booking.confirmed%> <% end %></td>
+        <td class="unconfirmed"><%player.bookings.each do |booking|%><%= link_to "#{booking.date}", player_booking_path(player, booking),  data: {turbo_method: :patch, turbo_confirm: "Confirm this booking?"} if booking.confirmed == false%> <% end %></td>
+       <td><%= link_to edit_player_path(player), class:"text-decoration-none" do %>
+       <i class="fa-duotone fa-pen-to-square"></i>
+       <% end %>
+       <i class="fa-duotone fa-trash"></i><%= link_to "Delete", player_path(player), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %> </td>
         <% i+=1 %>
       </tr>
       <% end %>
@@ -30,3 +35,9 @@
   </div>
 
 </div>
+
+<%# <%= link_to "Edit", edit_player_path(@player), class:"btn btn-outline-secondary" if policy(@player).edit? %>
+      <%# <%= link_to "Delete", player_path(@player), class: "btn btn-outline-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} if policy(@player).destroy? %>
+
+<i class="fa-duotone fa-pen-to-square"></i>
+<i class="fa-duotone fa-trash"></i>

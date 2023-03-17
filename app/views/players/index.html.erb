@@ -1,9 +1,9 @@
 <div class="container-index"
-  style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(https://img.freepik.com/free-vector/gradient-style-football-field-background_23-2148995842.jpg)">
+  style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url(https://img.freepik.com/free-vector/gradient-style-football-field-background_23-2148995842.jpg)">
   <div class="container">
 
 
-        <h1 class="p-3">All Players</h1>
+        <h1 class="text-center m-3">All Players</h1>
 
     <div class="container p-3">
 
@@ -11,33 +11,23 @@
         <div class="cards-index">
 
           <% @players.each do |player| %>
-            <div class="card-index" style="width: 18rem;">
+            <div class="card-index rounded-4" style="width: 18rem; ">
             <%= link_to player_path(player), class:"text-decoration-none" do%>
-              <%= cl_image_tag player.photo.key, width: 150, height: 150 %>
-                <div class="card-index-body">
-                  <h2 class="card-index-title"><%= player.full_name%></h2>
-                  <p class="card-index-text"><%= player.price.to_fs(:currency, round_mode: :down)%></p>
-                </div>
+            <div class="img">
+              <%= cl_image_tag player.photo.key, width: 151, height: 151 %>
+              </div>
+                  <h2 class="card-index-title h1"><%= player.full_name%></h2>
+                    <p class="card-index-text"><%= player.price.to_fs(:currency, round_mode: :down)%></p>
+
               <% end %>
             </div>
           <% end %>
+
         </div>
       </div>
     </div>
 
 
-      <%# <tbody>
-        <tr>
-        <% i = 1 %>
-      <%# <% @players.each do |player| %>
-          <%# <th scope="row"><%= i %>
-          <%# <td><%= link_to player.full_name, player_path(player) %>
-          <%# <td><%= player.position%>
-          <%# <td><%= player.price.to_fs(:currency, round_mode: :down)%>
-          <%# <% i+=1 %>
-        <%# </tr>
-        <% end %>
-      <%# </tbody>
-    </table> %>
+
   </div>
 </div>
