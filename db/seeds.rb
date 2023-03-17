@@ -53,11 +53,11 @@ player8 = Player.new(full_name: "Martin Palermo", position: "CF", nationality: "
 photo = URI.open("https://res.cloudinary.com/dmn9i4cwm/image/upload/v1679064303/Martin_NoBackground_s1twfo.png")
 player8.photo.attach(io: photo, filename: "martin.png", content_type: "image/jpg")
 player8.save!
-player9 = Player.new(full_name: "Paul Pogba", position: "DM", nationality: "France", location: "Italy", height: 1.91, age:  30, last_club: "Juventus", price: 50000000, user_id: user2.id)
+player9 = Player.new(full_name: "Paul Pogba", position: "DM", nationality: "France", location: "Italy", height: 1.91, age:  30, last_club: "Juventus", price: 50000000, user_id: user1.id)
 photo = URI.open("https://res.cloudinary.com/dmn9i4cwm/image/upload/v1679064303/Paul_NoBackground_qkqter.png")
 player9.photo.attach(io: photo, filename: "paul.png", content_type: "image/jpg")
 player9.save!
-player10 = Player.new(full_name: "Zlatan Ibrahimovic", position: "CF", nationality: "Sweden", location: "Italy", height: 1.95, age:  41, last_club: "Milan", price: 73000000, user_id: user2.id)
+player10 = Player.new(full_name: "Zlatan Ibrahimovic", position: "CF", nationality: "Sweden", location: "Italy", height: 1.95, age:  41, last_club: "Milan", price: 73000000, user_id: user1.id)
 photo = URI.open("https://res.cloudinary.com/dmn9i4cwm/image/upload/v1679064303/Zlatan_NoBackground_tpqum9.png")
 player10.photo.attach(io: photo, filename: "zlatan.png", content_type: "image/jpg")
 player10.save!
@@ -65,11 +65,11 @@ player11 = Player.new(full_name: "Emiliano Martinez", position: "GK", nationalit
 photo = URI.open("https://res.cloudinary.com/dmn9i4cwm/image/upload/v1679066419/12258.vresize.350.350.medium.72_kjplbf.png")
 player11.photo.attach(io: photo, filename: "dibu.png", content_type: "image/jpg")
 player11.save!
-player12 = Player.new(full_name: "Diego Costa", position: "CF", nationality: "Spain", location: "England", height: 1.86, age:  34, last_club: "Wolverhampton Wanderers", price: 30000000, user_id: user2.id)
+player12 = Player.new(full_name: "Diego Costa", position: "CF", nationality: "Spain", location: "England", height: 1.86, age:  34, last_club: "Wolverhampton Wanderers", price: 30000000, user_id: user1.id)
 photo = URI.open("https://res.cloudinary.com/dmn9i4cwm/image/upload/v1679066592/87-878557_diego-costa-hd-png-download_rghrbb.png")
 player12.photo.attach(io: photo, filename: "costa.png", content_type: "image/jpg")
 player12.save!
-player13 = Player.new(full_name: "Neymar Jr.", position: "RW", nationality: "Brazil", location: "France", height: 1.65, age:  31, last_club: "PSG", price: 67000000, user_id: user2.id)
+player13 = Player.new(full_name: "Neymar Jr.", position: "RW", nationality: "Brazil", location: "France", height: 1.65, age:  31, last_club: "PSG", price: 67000000, user_id: user1.id)
 photo = URI.open("https://res.cloudinary.com/dmn9i4cwm/image/upload/v1679067160/neymar_png_by_flashdsg_dc10dtd-pre.png_vgvhlh.png")
 player13.photo.attach(io: photo, filename: "neymar.png", content_type: "image/jpg")
 player13.save!
@@ -82,4 +82,10 @@ booking2 = Booking.new(confirmed: false, user_id: user3.id, player_id: player2.i
 booking2.save
 booking3 = Booking.new(confirmed: false, user_id: user4.id, player_id: player3.id, date: 2023)
 booking3.save
+booking4 = Booking.new(confirmed: true, user_id: user1.id, player_id: player5.id, date: 2023)
+booking4.save
+booking5 = Booking.new(confirmed: false, user_id: user2.id, player_id: player11.id, date: 2024)
+booking5.save
+booking6 = Booking.new(confirmed: false, user_id: user2.id, player_id: player13.id, date: 2023)
+booking6.save
 puts "bookings created"
